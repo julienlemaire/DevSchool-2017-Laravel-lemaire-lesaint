@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Articles;
+use App\model\Article;
 use Illuminate\Http\Request;
 
 
@@ -16,8 +16,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $list = Articles::paginate(10);
-        return view('articles.index',compact('list'));
+        $articles = Article::paginate(10);
+        return view('articles.index',compact('articles'));
     }
 
     /**
@@ -49,8 +49,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $post = Articles::findOrFail($id);
-        return view('Articles.show', compact('Articles'));
+        $articles = Article::findOrFail($id);
+        return view('Articles.show', compact('articles'));
 
     }
 
