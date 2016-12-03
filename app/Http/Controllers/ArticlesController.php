@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\model\Articles;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+
 
 class ArticlesController extends Controller
 {
@@ -15,7 +16,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return view('articles.index');
+        $list = Articles::all();
+        return view('articles.index',compact('list'));
     }
 
     /**
