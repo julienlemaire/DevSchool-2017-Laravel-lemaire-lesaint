@@ -17,6 +17,8 @@
                             <p>{{ $article->content  }}</p>
                         @endforeach
 
+                        {{ $articles->links() }}
+
                     </div>
                 </div>
             </div>

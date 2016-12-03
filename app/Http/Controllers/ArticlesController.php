@@ -16,7 +16,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $list = Articles::all();
+        $list = Articles::paginate(10);
         return view('articles.index',compact('list'));
     }
 
