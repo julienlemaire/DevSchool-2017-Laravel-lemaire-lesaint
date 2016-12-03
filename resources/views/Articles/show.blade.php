@@ -7,7 +7,10 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">afffiche des articles</div>
                     <div class="panel-body">
-                        afffiche des articles
+
+                        <h2>{{ $Articles->title }}</h2>
+                        <p>{{ $Articles->content }}</p>
+
 
                     </div>
                 </div>

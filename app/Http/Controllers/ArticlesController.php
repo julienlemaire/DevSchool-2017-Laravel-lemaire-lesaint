@@ -49,7 +49,9 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Articles::findOrFail($id);
+        return view('Articles.show', compact('Articles'));
+
     }
 
     /**
