@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\model\Article;
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
 
-
-class ArticlesController extends Controller
+class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
-        return view('articles.index',compact('articles'));
+        // Doit retourner la liste des articles
+        return view('articles.index');
     }
 
     /**
@@ -27,7 +26,8 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        // Doit retourner le formulaire de création des articles
+        return view('articles.create');
     }
 
     /**
@@ -38,7 +38,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Doit enregistrer un nouvel article depuis un formulaire
     }
 
     /**
@@ -49,9 +49,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        $articles = Article::findOrFail($id);
-        return view('Articles.show', compact('articles'));
-
+        // Doit retourner la page d'un article spécifique
+        return view('articles.show');
     }
 
     /**
@@ -62,7 +61,8 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Doit retourner le formulaire d'édition d'un article spécifique
+        return view('articles.edit');
     }
 
     /**
@@ -74,7 +74,7 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Doit enregistrer les modifications faites à un article
     }
 
     /**
@@ -85,6 +85,6 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Doit supprimer un article spécifique
     }
 }

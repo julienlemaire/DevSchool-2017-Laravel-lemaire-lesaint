@@ -11,11 +11,22 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
+    static $password;
+
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
+
+});
+
+$factory->define(App\Models\Article::class, function (Faker\Generator $faker) {
+   return [
+       'title' => $faker->sentence(),
+       'content' => $faker->text(),
+       'user_id' => $faker->numBetween(1, 20),
+   ];
 });
