@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use Auth;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +18,8 @@ class ArticleController extends Controller
     public function index()
     {
         // Doit retourner la liste des articles
-        return view('articles.index');
+        $list = Article::paginate(10);
+        return view('articles.index', compact('list'));
     }
 
     /**
@@ -50,7 +53,8 @@ class ArticleController extends Controller
     public function show($id)
     {
         // Doit retourner la page d'un article spécifique
-        return view('articles.show');
+        $article = Article::findOrFail($id);
+        return view('articles.show', compact('article'));
     }
 
     /**
@@ -62,7 +66,8 @@ class ArticleController extends Controller
     public function edit($id)
     {
         // Doit retourner le formulaire d'édition d'un article spécifique
-        return view('articles.edit');
+        $article = Article::findOrFail($id);
+        return view('articles.edit', compact('artilce'));
     }
 
     /**

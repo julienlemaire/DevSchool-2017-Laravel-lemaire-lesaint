@@ -52,6 +52,8 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ route('article.create') }}">Publier</a></li>
+                    <li><a href="{{ route('article.index') }}">Articles</a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
